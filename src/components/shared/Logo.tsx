@@ -1,5 +1,12 @@
 import Image from "next/image";
 
+/** GitHub Pages serves this app under /sherlock; local/dev uses "". */
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
+
+function asset(path: string) {
+  return `${basePath}${path}`;
+}
+
 export function SherlockLogo({
   size = 48,
   className = "",
@@ -9,7 +16,7 @@ export function SherlockLogo({
 }) {
   return (
     <Image
-      src="/assets/sherlock-logo.png"
+      src={asset("/assets/sherlock-logo.png")}
       alt="Sherlock logo"
       width={size}
       height={size}
@@ -29,7 +36,7 @@ export function MerQubeLogo({
 }) {
   return (
     <Image
-      src="/assets/merqube-logo.svg"
+      src={asset("/assets/merqube-logo.svg")}
       alt="MerQube logo"
       width={width}
       height={width}
