@@ -415,7 +415,7 @@ export const CASES: CaseStudy[] = [
     ],
     checks: [
       { system: "Jira", finding: "Found PES-352" },
-      { system: "DataAPI", finding: "Response was valid" },
+      { system: "IndexAPI", finding: "Response was valid" },
       { system: "Databases", finding: "Portfolio stored" },
       { system: "Source code", finding: "Contract unchanged" },
     ],

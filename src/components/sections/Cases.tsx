@@ -31,6 +31,7 @@ const SYSTEM_ICON: Record<string, LucideIcon> = {
   Airflow: WorkflowIcon,
   S3: Box,
   DataAPI: Network,
+  IndexAPI: Network,
   SecAPI: ShieldAlert,
   Databases: Database,
   Manifests: FileCog,
