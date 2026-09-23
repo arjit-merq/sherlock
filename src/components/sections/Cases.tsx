@@ -34,6 +34,7 @@ const SYSTEM_ICON: Record<string, LucideIcon> = {
   SecAPI: ShieldAlert,
   Databases: Database,
   Manifests: FileCog,
+  Manifest: FileCog,
   "Source code": FolderGit2,
 };
 
