@@ -323,14 +323,14 @@ export const PLAYBOOK_EXAMPLE = {
   title: "A futures price changes overnight.",
   lead: "The playbook tells Sherlock to:",
   steps: [
-    "Check the old and new prices.",
-    "Check SecAPI history.",
-    "Check the Reuters source files.",
-    "Confirm whether Reuters corrected the price.",
+    "Read the old and new prices from the ticket.",
+    "Check SecAPI history for two vendor inserts on that date.",
+    "Check the Reuters source files for those two prints.",
+    "Confirm Reuters published a settlement correction.",
   ],
-  skipped: ["Airflow", "Helix", "Broad code searches"],
+  skipped: ["Airflow"],
   skipNote:
-    "If these records agree, Sherlock can skip Airflow, Helix, and broad code searches because they will not explain where the price came from.",
+    "If SecAPI history and the Reuters files already agree, Sherlock can skip Airflow. Airflow explains a job rewrite. It does not explain a vendor restatement.",
 };
 
 export const DISTILL_INTRO = "Distill is how Sherlock learns from a completed investigation. After a case finishes, it records:";
@@ -343,9 +343,12 @@ export const DISTILL_POINTS = [
 ];
 
 export const DISTILL_EXAMPLE = {
-  lead: "In the Reuters price investigation, checking SecAPI and the Reuters files solved the case. Checking Airflow or Helix was unnecessary.",
+  lead: "In the Reuters price investigation, checking SecAPI history and the Reuters files solved the case. Checking Airflow was unnecessary.",
   addsLead: "Distill adds:",
-  adds: ["SecAPI and Reuters files to the playbook's recommended steps", "Airflow and Helix to its skip list"],
+  adds: [
+    "SecAPI history and the Reuters files to the playbook's recommended steps",
+    "Airflow to its skip list",
+  ],
   closing: "The next similar investigation can therefore start with the useful checks.",
 };
 
@@ -493,7 +496,7 @@ export const ICONS = { Search, ListChecks, Sparkles };
 // ---------- Page 6: Accuracy ----------
 export const ACCURACY_HEADLINE = {
   value: 88.2,
-  window: "14 Sep – 18 Sep · 34 tickets",
+  window: "14 Sep – 24 Sep · 34 tickets",
   rise: "+23.2pp since 15 Aug – 29 Aug",
 };
 
@@ -507,7 +510,7 @@ export interface AccuracyPoint {
 export const ACCURACY_TREND: AccuracyPoint[] = [
   { label: "15 Aug – 29 Aug", sub: "20 tickets", value: 65.0 },
   { label: "30 Aug – 13 Sep", sub: "22 tickets", value: 81.8, gain: "+16.8pp" },
-  { label: "14 Sep – 18 Sep", sub: "34 tickets", value: 88.2, gain: "+6.4pp" },
+  { label: "14 Sep – 24 Sep", sub: "34 tickets", value: 88.2, gain: "+6.4pp" },
 ];
 
 export const ACCURACY_SOURCES = ["Airflow", "Code", "Jira", "Slack", "Manifests", "SecAPI", "DataAPI", "DB", "S3"];
@@ -539,7 +542,7 @@ export const ACCURACY_STAGES: AccuracyStage[] = [
     gain: "+16.8pp",
   },
   {
-    era: "14 Sep – 18 Sep",
+    era: "14 Sep – 24 Sep",
     activeSources: ACCURACY_SOURCES,
     memoryActive: true,
     title: "Plus lessons from cases already solved",

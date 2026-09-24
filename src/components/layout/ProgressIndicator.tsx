@@ -14,7 +14,7 @@ export function ProgressIndicator() {
   return (
     <nav
       aria-label="Presentation progress"
-      className="fixed right-4 top-1/2 z-40 hidden -translate-y-1/2 flex-col items-end gap-4 md:flex lg:right-6"
+      className="fixed right-16 top-1/2 z-40 hidden -translate-y-1/2 flex-col items-end gap-4 md:flex lg:right-20"
     >
       {PROGRESS_SECTIONS.map((s) => {
         const active = activeSection === s.id;

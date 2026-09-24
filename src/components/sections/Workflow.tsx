@@ -78,7 +78,7 @@ export function Workflow() {
           aria-hidden
         />
 
-        <div className="relative z-10 mb-4 flex items-start justify-between">
+        <div className="relative z-10 mb-4 flex items-start justify-between pr-16 md:pr-20">
           <div>
             <h2 className="section-title text-text-primary">
               Workflow map
@@ -88,7 +88,7 @@ export function Workflow() {
               From a new case to reusable investigation knowledge
             </p>
           </div>
-          <span className="mono-label text-[14px] text-text-tertiary md:text-sm">
+          <span className="mono-label shrink-0 text-[14px] text-text-tertiary md:text-sm">
             {activeIndex + 1} / {STAGE_COUNT}
           </span>
         </div>

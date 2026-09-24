@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { ProgressIndicator } from "@/components/layout/ProgressIndicator";
 import { KeyboardNav } from "@/components/layout/KeyboardNav";
 import { BackgroundField } from "@/components/layout/BackgroundField";
+import { BrandLockup } from "@/components/layout/BrandLockup";
 import { OpeningTitle } from "@/components/sections/OpeningTitle";
 import { Hero } from "@/components/sections/Hero";
 import { Challenges } from "@/components/sections/Challenges";
@@ -22,6 +23,7 @@ export default function Home() {
   return (
     <>
       <BackgroundField />
+      <BrandLockup />
       <ProgressIndicator />
       <KeyboardNav />
       <main className="relative z-10">
