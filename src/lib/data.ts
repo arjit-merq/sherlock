@@ -320,17 +320,17 @@ export const PLAYBOOK_POINTS = [
 ];
 
 export const PLAYBOOK_EXAMPLE = {
-  title: "A futures price changes overnight.",
+  title: "A child report fails with “data not found for parent.”",
   lead: "The playbook tells Sherlock to:",
   steps: [
-    "Read the old and new prices from the ticket.",
-    "Check SecAPI history for two vendor inserts on that date.",
-    "Check the Reuters source files for those two prints.",
-    "Confirm Reuters published a settlement correction.",
+    "Read the child ticket and PES-714.",
+    "Open S3 rebal_info for the parent and the child on that selection date.",
+    "Expect the parent DELAYED / MCAP not validated, and the child already COMPLETED.",
+    "Read the DissAPI task log for fallback to the parent’s main portfolio.",
   ],
-  skipped: ["Airflow"],
+  skipped: ["SecAPI", "SFTP inbox", "Report-file listing"],
   skipNote:
-    "If SecAPI history and the Reuters files already agree, Sherlock can skip Airflow. Airflow explains a job rewrite. It does not explain a vendor restatement.",
+    "If rebal_info already shows the parent late and the child complete, Sherlock can skip SecAPI, SFTP, and the report files. Those checks explain a missing print or a missing delivery. They do not explain a parent rebalance that has not been validated yet.",
 };
 
 export const DISTILL_INTRO = "Distill is how Sherlock learns from a completed investigation. After a case finishes, it records:";
@@ -343,11 +343,11 @@ export const DISTILL_POINTS = [
 ];
 
 export const DISTILL_EXAMPLE = {
-  lead: "In the Reuters price investigation, checking SecAPI history and the Reuters files solved the case. Checking Airflow was unnecessary.",
+  lead: "In the “data not found for parent” investigation, checking S3 rebal_info and the DissAPI task log solved the case. Checking SecAPI, the SFTP inbox, and the report output files was unnecessary.",
   addsLead: "Distill adds:",
   adds: [
-    "SecAPI history and the Reuters files to the playbook's recommended steps",
-    "Airflow to its skip list",
+    "Parent and child rebal_info, plus the DissAPI task log, to the playbook’s recommended steps",
+    "SecAPI, SFTP, and report-file listing to its skip list",
   ],
   closing: "The next similar investigation can therefore start with the useful checks.",
 };

@@ -90,8 +90,8 @@ export function Improve() {
                   {DISTILL_EXAMPLE.adds.map((a, i) => {
                     const r = distillAdd(i);
                     return (
-                      <li key={a} className="flex items-start gap-2 text-base transition-opacity duration-300 md:text-lg" style={{ opacity: 0.25 + r * 0.75 }}>
-                        <CheckCircle2 size={15} className={r > 0.5 ? "text-cyan" : "text-text-tertiary"} />
+                      <li key={a} className="flex items-center gap-2.5 text-base transition-opacity duration-300 md:text-lg" style={{ opacity: 0.25 + r * 0.75 }}>
+                        <CheckCircle2 size={16} className={`shrink-0 ${r > 0.5 ? "text-cyan" : "text-text-tertiary"}`} />
                         <span className="text-text-secondary">{a}</span>
                       </li>
                     );
@@ -146,7 +146,7 @@ export function Improve() {
                     const p = pathStep(i);
                     return (
                       <li key={step} className="flex items-center gap-2.5 text-base transition-opacity duration-300 md:text-lg" style={{ opacity: 0.3 + p * 0.7 }}>
-                        <CheckCircle2 size={16} className={p > 0.5 ? "text-green" : "text-text-tertiary"} />
+                        <CheckCircle2 size={16} className={`shrink-0 ${p > 0.5 ? "text-green" : "text-text-tertiary"}`} />
                         <span className="text-text-secondary">{step}</span>
                       </li>
                     );
